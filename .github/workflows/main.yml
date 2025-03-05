@@ -60,7 +60,7 @@ jobs:
       - name: Set up SSH
         uses: appleboy/ssh-action@v0.1.6
         with:
-          host: ${{ secrets.SERVER_IP }}
+          host: ${{ secrets.SSH_HOST }}
           username: ${{ secrets.SSH_NAME }}
           key: ${{ secrets.SSH_KEY }}
           port: ${{secrets.SSH_PORT}}
