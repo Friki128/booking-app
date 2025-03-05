@@ -36,9 +36,9 @@
 					}
 				},
 				"url": {
-					"raw": "server136.cfgs.esliceu.net:8080/api/cancel",
+					"raw": "server106.cfgs.esliceu.net:8080/api/cancel",
 					"host": [
-						"server136",
+						"server106",
 						"cfgs",
 						"esliceu",
 						"net"
@@ -84,9 +84,9 @@
 					}
 				},
 				"url": {
-					"raw": "server136.cfgs.esliceu.net:8080/api/book",
+					"raw": "server106.cfgs.esliceu.net:8080/api/book",
 					"host": [
-						"server136",
+						"server106",
 						"cfgs",
 						"esliceu",
 						"net"
@@ -132,9 +132,9 @@
 				"method": "GET",
 				"header": [],
 				"url": {
-					"raw": "server136.cfgs.esliceu.net:8080/api/ping",
+					"raw": "server106.cfgs.esliceu.net:8080/api/ping",
 					"host": [
-						"server136",
+						"server106",
 						"cfgs",
 						"esliceu",
 						"net"
