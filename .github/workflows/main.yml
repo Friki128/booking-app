@@ -90,7 +90,7 @@ jobs:
         path: target/surefire-reports/
         
     - name: Publish test results to GitHub
-      uses: mikeal/publish-to-github-action@v1
+      uses: mikeal/publish-to-github-action@v2
       with:
         github_token: ${{ secrets.GITHUB_TOKEN }}
         files: target/surefire-reports/*.xml
