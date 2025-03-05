@@ -88,6 +88,14 @@ jobs:
       with:
         name: test-results
         path: target/surefire-reports/
+        
+    - name: Publish test results to GitHub
+      uses: mikeal/publish-to-github-action@v1
+      with:
+        github_token: ${{ secrets.GITHUB_TOKEN }}
+        files: target/surefire-reports/*.xml
+        commit_message: "Add test results"
+        branch: test-results
             
   docker_build:
     runs-on: ubuntu-latest
