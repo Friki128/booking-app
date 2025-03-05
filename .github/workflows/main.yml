@@ -46,6 +46,9 @@ jobs:
           key: ${{ runner.os }}-maven-${{ hashFiles('**/pom.xml') }}
           restore-keys: |
             ${{ runner.os }}-maven-
+            
+      - name: Build with Maven
+        run: mvn clean install -DskipTests      
       
       - name: SonarQube Analysis
         run: |
