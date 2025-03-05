@@ -1,0 +1,143 @@
+{
+	"info": {
+		"_postman_id": "fe191973-1548-4e07-9b02-ddcb303a6d42",
+		"name": "Booking",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "41200548"
+	},
+	"item": [
+		{
+			"name": "cancel",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status is CANCELLED\", function(){",
+							"    const json = pm.response.json();",
+							"    pm.expect(json.status).to.eql('CANCELLED');",
+							"});"
+						],
+						"type": "text/javascript",
+						"packages": {}
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"bookingRef\": \"ref-7VY6LSUE\"\n}\n",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:8080/api/cancel",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"cancel"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Book Service",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Response contains status, bookingRef and totalPrice\", function(){",
+							"    const json = pm.response.json();",
+							"    pm.expect(json).to.have.property('status');",
+							"    pm.expect(json).to.have.property('bookingRef');",
+							"    pm.expect(json).to.have.property('totalPrice');",
+							"});"
+						],
+						"type": "text/javascript",
+						"packages": {}
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "    {\n        \"hotelCode\": \"AMTS00000\",\n        \"roomCode\": \"BUNK\",\n        \"boardCode\": \"BB\",\n        \"checkIn\": \"2025-06-23\",\n        \"checkOut\": \"2025-06-30\",\n        \"guests\": [\n            \"Pax1\",\n            \"Pax2\"\n        ]\n    }\n",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:8080/api/book",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"book"
+					],
+					"query": [
+						{
+							"key": "hotelCode",
+							"value": "AMTS00000",
+							"disabled": true
+						},
+						{
+							"key": "roomCode",
+							"value": null,
+							"disabled": true
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "pong",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Test pong\", function(){",
+							"    pm.response.to.have.body(\"pong\");",
+							"});"
+						],
+						"type": "text/javascript",
+						"packages": {}
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "localhost:8080/api/ping",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"ping"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
